@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def get_input():
@@ -19,14 +20,25 @@ def get_input():
 fib_nums = np.array([0, 1])
 
 
-def get_fib(size, fib_nums):
+def get_fib(size):
+    global fib_nums
     if (size <= fib_nums.size):
         print(fib_nums[:(size)])
 
     else:
         new_num = fib_nums[-1] + fib_nums[-2]
         fib_nums = np.append(fib_nums, new_num)
-        get_fib(size, fib_nums)
+        get_fib(size)
 
 
-get_fib(get_input(), fib_nums)
+get_fib(get_input())
+
+ratio_nums = np.array([])
+
+for num in range(1, fib_nums.size-1):
+    new_ratio = fib_nums[num] / fib_nums[num-1]
+    ratio_nums = np.append(ratio_nums, new_ratio)
+
+
+plt.plot(ratio_nums)
+plt.show()
