@@ -50,4 +50,5 @@ if (fib_nums.size > 2):
     plt.xlabel("Size of fibonacci sequence (n)")
     plt.ylabel("Golden Ratio Estimate")
     plt.title("Estimating Golden Ratio over the Fibonacci Sequence")
+    # plt.savefig("11numberestimation")
     plt.show()
