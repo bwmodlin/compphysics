@@ -23,6 +23,6 @@ slope_text = str(round(best_fit[0], 2)) + " ppm / two weeks"
 
 plt.title("$C0_2$ increases at " + slope_text + " at Mauna Loa")
 
-plt.show()
+#plt.savefig("mygraph", bbox_inches='tight')
 
-# plt.savefig("mygraph.png")
+plt.show()
