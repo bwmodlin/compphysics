@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-C02_ppm_MaunaLoa = np.load("data.npy")
+C02_ppm_MaunaLoa = np.load("Quiz1/data.npy")
 
 num_years = (C02_ppm_MaunaLoa.size * 14) / 365
 
