@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 def get_input():
     input_size = 0
     try:
-        input_size = int(input("How many fibonacci numbers do you want?: "))
+        input_size = int(input(
+            "How many fibonacci numbers do you want? (overflows a little bigger than n=90): "))
     except:
         print("Please enter an integer greater than 0")
         get_input()
@@ -33,12 +34,13 @@ def get_fib(size):
 
 get_fib(get_input())
 
-ratio_nums = np.array([])
 
-for num in range(1, fib_nums.size-1):
-    new_ratio = fib_nums[num] / fib_nums[num-1]
-    ratio_nums = np.append(ratio_nums, new_ratio)
+if (fib_nums.size > 1):
+    print("approximating golden ratio")
+    ratio_nums = np.array([])
+    for num in range(2, fib_nums.size-1):
+        new_ratio = fib_nums[num] / fib_nums[num-1]
+        ratio_nums = np.append(ratio_nums, new_ratio)
 
-
-plt.plot(ratio_nums)
-plt.show()
+    plt.plot(ratio_nums)
+    plt.show()
