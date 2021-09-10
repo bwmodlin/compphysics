@@ -1,0 +1,1 @@
+It takes about n=11 terms for my algorithm to converge to the true golden ratio to about 3 decimal points. (1.618)

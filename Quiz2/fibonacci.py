@@ -36,12 +36,19 @@ def get_fib(size):
 get_fib(get_input())
 
 
-if (fib_nums.size > 1):
+if (fib_nums.size > 2):
     ratio_nums = np.array([])
-    for num in range(2, fib_nums.size-1):
+    for num in range(2, fib_nums.size):
+        print(num)
         new_ratio = fib_nums[num] / fib_nums[num-1]
         ratio_nums = np.append(ratio_nums, new_ratio)
+
     print("Approximating golden ratio array: \n")
     print(ratio_nums)
-    plt.plot(ratio_nums)
+
+    n_values = np.arange(3, fib_nums.size+1)
+    plt.plot(n_values, ratio_nums)
+    plt.xlabel("Size of fibonacci sequence (n)")
+    plt.ylabel("Golden Ratio Estimate")
+    plt.title("Estimating Golden Ratio over the Fibonacci Sequence")
     plt.show()
