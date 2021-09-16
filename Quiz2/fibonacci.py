@@ -36,7 +36,7 @@ def get_fib(size):
 get_fib(get_input())
 
 
-if (fib_nums.size > 2):
+if (fib_nums.size >= 3):
     ratio_nums = np.array([])
     for num in range(2, fib_nums.size):
         new_ratio = fib_nums[num] / fib_nums[num-1]
