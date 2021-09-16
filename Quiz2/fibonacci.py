@@ -24,8 +24,9 @@ fib_nums = np.array([0, 1])
 def get_fib(size):
     global fib_nums
     if (size <= fib_nums.size):
-        print("Fibonacci sequence array: \n")
+        print("Fibonacci sequence array: ")
         print(fib_nums[:(size)])
+        print("\n")
 
     else:
         new_num = fib_nums[-1] + fib_nums[-2]
@@ -42,8 +43,9 @@ if (fib_nums.size >= 3):
         new_ratio = fib_nums[num] / fib_nums[num-1]
         ratio_nums = np.append(ratio_nums, new_ratio)
 
-    print("Approximating golden ratio array: \n")
+    print("Approximating golden ratio array: ")
     print(ratio_nums)
+    print("\n")
 
     n_values = np.arange(3, fib_nums.size+1)
     plt.plot(n_values, ratio_nums)
