@@ -22,5 +22,9 @@ h5_file.close()
 ax = plt.gcf().add_subplot(111, projection='3d')
 # make a plot of a trajectory given x, y, and z arrays as a function of time
 ax.plot(x1d, y1d, z1d)
+ax.set_title("3d Trajectory Plot")
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
 
 plt.show()
