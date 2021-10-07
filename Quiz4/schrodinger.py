@@ -24,18 +24,29 @@ def zero(s):
     return (left(s) - right(s))
 
 
+def e_equation(s):
+    return (-v * ((s**2 / k_square) - 1))
+
+
 s = np.linspace(-k, k, 10000)
 l = left(s)
 r = right(s)
 z = zero(s)
 nu = np.zeros(s.shape)
 
-print(fsolve(zero, 2.8))
-print(fsolve(zero, 5.5))
-print(fsolve(zero, 8.2))
-
+s1 = fsolve(zero, 2.8)
+s2 = fsolve(zero, 5.5)
+s3 = fsolve(zero, 8.2)
 
 # 2.80780709, 5.5749446, 8.16336383
+
+print(e_equation(s1))
+print(e_equation(s2))
+print(e_equation(s3))
+
+# 1.43e-16, 9.24e-17, 1.49e-17
+
+
 #plt.plot(s, l)
 #plt.plot(s, r)
 plt.plot(s, z)
