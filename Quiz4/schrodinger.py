@@ -30,10 +30,17 @@ r = right(s)
 z = zero(s)
 nu = np.zeros(s.shape)
 
+print(fsolve(zero, 2.8))
+print(fsolve(zero, 5.5))
+print(fsolve(zero, 8.2))
+
+
+# 2.80780709, 5.5749446, 8.16336383
 #plt.plot(s, l)
 #plt.plot(s, r)
 plt.plot(s, z)
 plt.plot(s, nu)
+
 
 plt.ylim([-100, 100])
 plt.show()
