@@ -3,38 +3,37 @@ import scipy.constants as const
 import matplotlib.pyplot as plt
 from scipy.optimize import fsolve
 
+a = 0.529e-10
+v = 1 * 10**3 * const.electron_volt
+m = const.electron_mass
+h = const.hbar
 
-k_squared = 2 * const.electron_mass * \
-    (0.529 * (10**(-10))) * (10**3) * const.electron_volt / const.hbar
-k = np.sqrt(k_squared)
-
-print(k)
-
-
-def s_equation(s):
-    eq = s * (1/np.tan(s)) + (np.sqrt(k**2 - s**2))
-    return eq
-
-# (s^2 / k^2) - 1 = - E / V0
-# - V0 (s^2 / k^2) + V0 = E
+k_square = 2 * m * a**2 * v / (h**2)
+k = np.sqrt(k_square)
 
 
-def e_equation(s):
-    return - 1 * 10 ** 3 * (s**2/k**2) + (10**3)
+def left(s):
+    return (s * (1/np.tan(s)))
 
 
-s = np.linspace(-k, k, 1000)
-y = s_equation(s)
-z = np.zeros(s.shape)
+def right(s):
+    return (- (np.sqrt(k_square-s**2)))
 
-print(fsolve(s_equation, -6.9*10**(-12)))
-print(fsolve(s_equation, 6.8*10**(-12)))
 
-plt.figure(1)
-plt.clf()
+def zero(s):
+    return (left(s) - right(s))
 
-plt.plot(s, y, 'r--')
 
-plt.xlabel('x')
-plt.ylabel('cos(x)-exp(-x)')
+s = np.linspace(-k, k, 10000)
+l = left(s)
+r = right(s)
+z = zero(s)
+nu = np.zeros(s.shape)
+
+#plt.plot(s, l)
+#plt.plot(s, r)
+plt.plot(s, z)
+plt.plot(s, nu)
+
+plt.ylim([-100, 100])
 plt.show()
