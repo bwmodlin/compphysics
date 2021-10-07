@@ -23,17 +23,18 @@ def e_equation(s):
     return - 1 * 10 ** 3 * (s**2/k**2) + (10**3)
 
 
-print(fsolve(s_equation, 3))
-
-s = np.linspace(-2, 2, 1000)
+s = np.linspace(-k, k, 1000)
 y = s_equation(s)
 z = np.zeros(s.shape)
 
-print(y)
+print(fsolve(s_equation, -6.9*10**(-12)))
+print(fsolve(s_equation, 6.8*10**(-12)))
 
 plt.figure(1)
 plt.clf()
+
 plt.plot(s, y, 'r--')
+
 plt.xlabel('x')
 plt.ylabel('cos(x)-exp(-x)')
 plt.show()
