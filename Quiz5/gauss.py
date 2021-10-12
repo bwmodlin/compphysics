@@ -16,7 +16,7 @@ def getProbability(low, high):
     print("Probability: {0:.5f}%".format(integral[0]*100))
 
 
-x_low = 0
-x_high = 10
+x_low = -stddev
+x_high = stddev
 
 getProbability(x_low, x_high)
