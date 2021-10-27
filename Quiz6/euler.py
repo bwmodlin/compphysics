@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 def euler(method):
     x0 = 1.0
     v0 = 0.0
-    tau = 1.0
+    tau = 0.5
     w = 0.5
 
     x = x0

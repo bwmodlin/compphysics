@@ -1,0 +1,1 @@
+At around a timestep of 0.5, both methods seem pretty stable
