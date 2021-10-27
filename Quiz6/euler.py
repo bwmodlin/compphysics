@@ -1,8 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-
 def euler(method):
     x0 = 1.0
     v0 = 0.0
@@ -17,8 +15,13 @@ def euler(method):
     v_plt = np.array([v])
     t_plt = np.array([t])
 
+    period = (1 / (w / 2*np.pi)) *10
+
+    finalTime = period * 100
+
+
     if (method == "Euler"):
-        while (t < w * 100):
+        while (t < finalTime):
             x = x + v*tau
             a = -w**2 * x
             v = v + a*tau
@@ -29,7 +32,7 @@ def euler(method):
             t_plt = np.append(t_plt, t)
     
     elif (method == "Comer"):
-        while (t < 50):
+        while (t < finalTime):
             a = -w**2 * x
             v = v + a*tau
             x = x + v*tau
@@ -41,10 +44,6 @@ def euler(method):
     else:
         print("Not a valid method")
         return
-
-    print(t_plt)
-    print(x_plt)
-
 
     plt.figure(1)
     plt.plot(t_plt, x_plt)
@@ -64,8 +63,8 @@ def euler(method):
 
     plt.show()
 
-euler("Euler")
 euler("Comer")
+euler("Euler")
 
 
 
