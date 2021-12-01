@@ -1,27 +1,33 @@
 import random
 import numpy as np
+import matplotlib.pyplot as plt
 
 radius = 5
-
-n_total = 100000
 
 area_of_square = 4 * radius**2
 area_of_circle = np.pi * radius**2
 
-in_circle = 0
+n_total = np.logspace(1, 5, 20)
+error = []
 
-# (0, 0) at center of square/circle
-for i in range(n_total):
-    guess_x = random.uniform(-radius, radius)
-    guess_y = random.uniform(-radius, radius)
+for i in range(len(n_total)):
+    
+    in_circle = 0
+    
+    # (0, 0) at center of square/circle
+    for j in range(int(n_total[i])):
+        
+        guess_x = random.uniform(-radius, radius)
+        guess_y = random.uniform(-radius, radius)
 
-    # x^2 + y^2 = r^2
-    if guess_x**2 + guess_y**2 <= radius**2:
-        in_circle += 1
+        # x^2 + y^2 = r^2
+        if guess_x**2 + guess_y**2 <= radius**2:
+            in_circle += 1
 
+    guess_area = (float(in_circle) / float(n_total[i])) * float(area_of_square)
 
+    error.append(abs(guess_area-area_of_circle))
+    print(guess_area)
 
-guess_area = (float(in_circle) / float(n_total)) * float(area_of_square)
-
-print(guess_area)
-print(area_of_circle)
+plt.semilogx(n_total, error)
+plt.show()
