@@ -26,7 +26,8 @@ for i in range(len(n_total)):
 
     guess_area = (float(in_circle) / float(n_total[i])) * float(area_of_square)
 
-    error.append(abs(guess_area-area_of_circle))
+    guess_pi = 4 * guess_area / area_of_square
+    error.append(abs(guess_pi-np.pi))
 
-plt.semilogx(n_total, error)
+plt.loglog(n_total, error)
 plt.show()
