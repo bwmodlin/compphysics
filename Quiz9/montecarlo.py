@@ -7,7 +7,7 @@ radius = 5
 area_of_square = 4 * radius**2
 area_of_circle = np.pi * radius**2
 
-n_total = np.logspace(1, 6, 20)
+n_total = np.logspace(1, 7, 20)
 error = []
 
 for i in range(len(n_total)):
