@@ -7,13 +7,13 @@ radius = 5
 area_of_square = 4 * radius**2
 area_of_circle = np.pi * radius**2
 
-n_total = np.logspace(1, 5, 20)
+n_total = np.logspace(1, 6, 20)
 error = []
 
 for i in range(len(n_total)):
     
     in_circle = 0
-    
+
     # (0, 0) at center of square/circle
     for j in range(int(n_total[i])):
         
@@ -27,7 +27,6 @@ for i in range(len(n_total)):
     guess_area = (float(in_circle) / float(n_total[i])) * float(area_of_square)
 
     error.append(abs(guess_area-area_of_circle))
-    print(guess_area)
 
 plt.semilogx(n_total, error)
 plt.show()
