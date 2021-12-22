@@ -30,4 +30,7 @@ for i in range(len(n_total)):
     error.append(abs(guess_pi-np.pi))
 
 plt.loglog(n_total, error)
+plt.xlabel("N-Total")
+plt.ylabel("Error")
+plt.title("Error in Estimating Pi versus Total Points Placed")
 plt.show()
